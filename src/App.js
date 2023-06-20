@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Task4 from './task4';
 import './App.css';
 
 function App() {
+  const [displayTask, setDisplayTask] = useState(false);
+
+  function handleClick() {
+    setDisplayTask(!displayTask);
+    
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input onClick={handleClick} type="button" value="Toggle" />
+      {displayTask && <Task4 />}
     </div>
   );
 }
